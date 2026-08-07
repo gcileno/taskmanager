@@ -1,0 +1,30 @@
+### Back-end
+- **Spring Boot + Spring Data JPA (Hibernate):** escolha padrão do ecossistema Spring para persistência relacional, reduzindo boilerplate de SQL manual via `JpaRepository`.
+- **`ddl-auto: update`:** usado para simplificar o ciclo de desenvolvimento dentro do prazo do desafio. Em um ambiente de produção, seria substituído por migrations versionadas (Flyway ou Liquibase).
+- **JWT (JJWT):** autenticação stateless, sem necessidade de gerenciar sessão no servidor.
+- **Multi-stage Docker build:** separa a etapa de build (Maven) da imagem final (apenas JRE + `.jar`), reduzindo o tamanho da imagem em produção.
+
+### Front-end
+- **React + Vite:** ambiente de desenvolvimento mais rápido que alternativas como Create React App (atualmente descontinuado).
+- **Dockerfile em modo dev (hot-reload):** priorizado em vez de build de produção com Nginx, dado o escopo de tempo do desafio. Em produção, o front seria servido via build estático (Nginx) com proxy reverso para a API.
+
+### Banco de dados
+- PostgreSQL rodando em container, isolado por rede Docker dedicada (`app-network`), permitindo que back-end e banco se comuniquem pelo nome do serviço (`db`) em vez de `localhost`.
+
+## O que foi feito
+
+- [x] Estrutura inicial do back-end (Spring Boot + Maven)
+- [x] Dockerfile do back-end (multi-stage build)
+- [x] Dockerfile do front-end (modo dev)
+- [ ] Modelagem de entidades (Usuário, Time, Tarefa)
+- [ ] Autenticação JWT
+- [ ] CRUD de tarefas
+- [ ] Filtros e paginação
+- [ ] Testes unitários
+- [ ] Integração front-end com API
+
+
+## Diferenciais implementados
+
+- [ ] CRUD de tarefas com IA
+- [ ] Ao descrever a atrefa a IA deve criar todas as tarefass sozinhas.

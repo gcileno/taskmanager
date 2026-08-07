@@ -1,0 +1,32 @@
+# Mini Task Manager
+
+Sistema de gestão de tarefas em equipe, permitindo que times pequenos organizem demandas com controle de responsáveis, prioridades e status.
+
+## Stack técnica
+
+- **Back-end:** Java 17, Spring Boot 3.3.2, Spring Data JPA (Hibernate), Spring Security
+- **Autenticação:** JWT (JJWT)
+- **Banco de dados:** PostgreSQL
+- **Front-end:** React (Vite)
+- **Containerização:** Docker + Docker Compose
+
+## Como rodar o projeto localmente
+
+### Pré-requisitos
+- Docker e Docker Compose instalados
+
+### Passos
+```bash
+git clone <url-do-repositorio>
+cd mini-task-manager
+docker-compose up --build
+```
+
+- Back-end disponível em: `http://localhost:8080`
+- Front-end disponível em: `http://localhost:3000`
+- Banco PostgreSQL exposto em: `localhost:5432`
+
+## Arquitetura e decisões técnicas
+
+### Estrutura do repositório
+Monorepo com back-end e front-end no mesmo repositório, facilitando build e execução conjunta via Docker Compose.
