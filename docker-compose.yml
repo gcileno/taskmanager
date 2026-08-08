@@ -9,26 +9,32 @@ services:
       - "5432:5432"
     networks:
       - app-network
-
+  
   backend:
     build: ./backend
     depends_on:
       - db
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/taskmanager
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: taskmanager
+      DB_USER: admin
+      DB_PASSWORD: admin
     ports:
       - "8080:8080"
     networks:
       - app-network
 
-  frontend:
-    build: ./frontend
-    depends_on:
-      - backend
-    ports:
-      - "3000:3000"
-    networks:
-      - app-network
+  # frontend:
+  #   build: ./frontend
+  #   depends_on:
+  #     - backend
+  #   environment:
+  #     VITE_API_URL: http://localhost:8080
+  #   ports:
+  #     - "3000:3000"
+  #   networks:
+  #     - app-network
 
 networks:
   app-network:
